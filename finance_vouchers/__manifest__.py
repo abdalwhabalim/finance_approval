@@ -1,6 +1,6 @@
 {
     'name': 'Finance Vouchers Approval / Cash Approval',
-    'version': '1.0',
+    'version': '15.0',
     'category': 'Accounting',
     'author': 'SGT',
     'support': 'support@softguidetech.com',
