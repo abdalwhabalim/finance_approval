@@ -1,0 +1,688 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* custody_clear_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e-20181029\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-03 14:08+0000\n"
+"PO-Revision-Date: 2019-09-03 14:08+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__date
+msgid " Date"
+msgstr "التاريخ"
+
+#. module: custody_clear_request
+#: model:res.groups,name:custody_clear_request.group_custody_clear_dm
+msgid "1-Submission"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:res.groups,name:custody_clear_request.group_custody_clear_am
+msgid "2-Confirmation"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:res.groups,name:custody_clear_request.group_custody_clear_fm
+msgid "3-Approval"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__account_id
+msgid "Account"
+msgstr "الحساب"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_form
+msgid "Accounting Details"
+msgstr "تفاصيل الحسابات"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_needaction
+msgid "Action Needed"
+msgstr "الإجراء المطلوب"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: custody_clear_request
+#: model:ir.actions.act_window,name:custody_clear_request.custody_clear_request_ac
+msgid "All Reconcile"
+msgstr "تصفيه الكل"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__amount
+msgid "Amount"
+msgstr "القيمة"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__num2wo
+msgid "Amount In Text"
+msgstr "القيمه بالحروف"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__analytic_id
+msgid "Analytic"
+msgstr "الحساب التحليلي"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__analytic_accont_id
+msgid "Analytic Account"
+msgstr "الحساب التحليلي"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_form
+msgid "Approve"
+msgstr "موافقه"
+
+#. module: custody_clear_request
+#: selection:custody.clear.request,state:0
+msgid "Approved"
+msgstr "تم التصديق"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__doc_attachment_id
+msgid "Attachment"
+msgstr "ارفاق"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__amount
+msgid "Balance"
+msgstr "الرصيد"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__bank_template
+msgid "Bank Template"
+msgstr "البنك"
+
+#. module: custody_clear_request
+#: selection:custody.clear.request,state:0
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__check_date
+msgid "Check Date"
+msgstr "تاريخ الشيك"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__check_number
+msgid "Check Number"
+msgstr "رقم الشيك"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__check_id
+msgid "Check Reference"
+msgstr "مرجعيه الشيك"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__check_term
+msgid "Check Term"
+msgstr "مصطلح الشيك"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__date_clear
+msgid "Clear Date"
+msgstr "تاريخ التصفيه"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_request__clear_num
+msgid "Clear Num"
+msgstr "عدد التصفيات"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__company_id
+msgid "Company"
+msgstr "المؤسسة"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__company_id
+msgid "Company Name"
+msgstr "اسم الشركة"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: custody_clear_request
+#: selection:custody.clear.request,state:0
+msgid "Confirmed"
+msgstr "تم التأكيد"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__count_diff
+msgid "Count Diff"
+msgstr "حساب الفرق"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__count_je
+msgid "Count Je"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__create_uid
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__create_uid
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__create_date
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__create_date
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__company_id
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__currency_id
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__user_id
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__currency_id
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__custody_request_id
+msgid "Custody"
+msgstr "العهده"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_form
+msgid "Difference"
+msgstr "الفرق"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__journal_id
+msgid "Difference Amount/Journal"
+msgstr "الفرق في المبلع او اليوميه"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__move_id2
+msgid "Difference Move"
+msgstr "قيد الفروقات"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__display_name
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__display_name
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request_report__display_name
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: custody_clear_request
+#: selection:custody.clear.request,state:0
+msgid "Draft"
+msgstr "مسوده"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__name
+msgid "Expense Description"
+msgstr "وصف المصروف"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_form
+msgid "Expense Entry"
+msgstr "قيد المصروف"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__move_id
+msgid "Expense entry"
+msgstr "قيد المصروف"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__account_id
+msgid "Expenses Account"
+msgstr "حساب المصروف"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__custody_line_ids
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_form
+msgid "Expenses Line"
+msgstr "المصروفات"
+
+#. module: custody_clear_request
+#: selection:custody.clear.request,check_term:0
+msgid "Follow-up"
+msgstr "متابعه"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: custody_clear_request
+#: model:ir.module.category,description:custody_clear_request.module_category_custody_clear_request
+msgid "Helps you manage your Account Custody "
+msgstr ""
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__id
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__id
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request_report__id
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,help:custody_clear_request.field_custody_clear_request__message_unread
+msgid "If checked new messages require your attention."
+msgstr "إذا حددته، سيتم إخطارك بالرسائل الجديدة."
+
+#. module: custody_clear_request
+#: model:ir.model.fields,help:custody_clear_request.field_custody_clear_request__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا حددته، سيتم إخطارك بالرسائل الجديدة."
+
+#. module: custody_clear_request
+#: model:ir.model.fields,help:custody_clear_request.field_custody_clear_request__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده ، فإن بعض الرسائل بها خطأ في التسليم."
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line____last_update
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request____last_update
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request_report____last_update
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__write_uid
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__write_uid
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__write_date
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__write_date
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسائل"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_search
+msgid "My Requests"
+msgstr "طلباتي"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط القادم"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط القادم"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: custody_clear_request
+#: selection:custody.clear.request,check_term:0
+msgid "Not Follow-up"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__description
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_has_error_counter
+msgid "Number of error"
+msgstr "عدد الاخطاء"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,help:custody_clear_request.field_custody_clear_request__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب اجراء"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,help:custody_clear_request.field_custody_clear_request__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل مع خطأ في التسليم"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,help:custody_clear_request.field_custody_clear_request__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل الجديدة"
+
+#. module: custody_clear_request
+#: selection:custody.clear.request,activity_state:0
+msgid "Overdue"
+msgstr "انتهاء المده"
+
+#. module: custody_clear_request
+#: model:ir.model,name:custody_clear_request.model_custody_request
+msgid "Petty Cash Request"
+msgstr "طلب عهده"
+
+#. module: custody_clear_request
+#: model:ir.model,name:custody_clear_request.model_custody_clear_request
+msgid "Petty cash Reconcile Request"
+msgstr "طلب تصفيه"
+
+#. module: custody_clear_request
+#: model:ir.actions.act_window,name:custody_clear_request.custody_report_action
+msgid "Petty cash Report"
+msgstr "تقريد العهد"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__custody_ids
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__request_id
+msgid "Petty cash Request"
+msgstr "طلب عهده"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__request_clear_id
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__request_id
+msgid "Petty cash request"
+msgstr "طلب عهده"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__custody_journal_id
+msgid "Petty cash/Journal"
+msgstr "يوميه العهده"
+
+#. module: custody_clear_request
+#: selection:custody.clear.request,activity_state:0
+msgid "Planned"
+msgstr "خططت"
+
+#. module: custody_clear_request
+#: selection:custody.clear.request,state:0
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_form
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_search
+msgid "Posted"
+msgstr "تم"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_request)inherit_form
+msgid "Reconcile"
+msgstr "تسوية"
+
+#. module: custody_clear_request
+#: model:ir.actions.act_window,name:custody_clear_request.custody_clear_request_am
+msgid "Reconcile Account Manager Approval"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__amount
+msgid "Reconcile Amount"
+msgstr "المبلغ"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__custody_date
+msgid "Reconcile Date"
+msgstr "تاريخ التصفيه"
+
+#. module: custody_clear_request
+#: model:ir.actions.act_window,name:custody_clear_request.custody_clear_request_dm
+msgid "Reconcile Direct Manager Approval"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:ir.actions.act_window,name:custody_clear_request.custody_clear_request_fm
+msgid "Reconcile Finance Manager Approval"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:ir.actions.act_window,name:custody_clear_request.custody_clear_request_post
+msgid "Reconcile Posted "
+msgstr ""
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_request__clear_ids
+#: model:ir.module.category,name:custody_clear_request.module_category_custody_clear_request
+#: model:ir.ui.menu,name:custody_clear_request.custody_clear_request_ch1
+msgid "Reconcile Request"
+msgstr "طلب تصفيه"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__name
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_form
+msgid "Request Details"
+msgstr "تفاصيل الطلب"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسئول"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,help:custody_clear_request.field_custody_clear_request__journal_type
+msgid "Select 'Sale' for customer invoices journals.\n"
+"Select 'Purchase' for vendor bills journals.\n"
+"Select 'Cash' or 'Bank' for journals that are used in customer or vendor payments.\n"
+"Select 'General' for miscellaneous operations journals."
+msgstr "اختر \"بيع\" لدفتر اليومية لفواتير العملاء. \n"
+"اختر \"شراء\" لدفتر اليومية فواتير الموردين. \n"
+"اختر \"نقدى\" أو \"بنك\" لدفاتر اليومية المستخدمة في مدفوعات العميل أو المورد.\n"
+" اختر \"عام\" للعمليات المتنوعة لدفتر اليومية. "
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__sequence
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_form
+msgid "Set to Draft"
+msgstr "تعيين كمسودة"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__state
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.petty_cash_reconcile_kanban_view
+msgid "State /"
+msgstr "الحاله"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,help:custody_clear_request.field_custody_clear_request__activity_state
+msgid "Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr "الحالة على أساس الأنشطة\n"
+"المتأخرة: تاريخ الاستحقاق مر\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"المخطط: الأنشطة المستقبلية"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_form
+msgid "Submit"
+msgstr "تأكيد"
+
+#. module: custody_clear_request
+#: selection:custody.clear.request,state:0
+msgid "Submitted"
+msgstr "تم التاكيد"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__total_with_ex
+msgid "Subtotal"
+msgstr "المجموع"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__total_tax
+msgid "Tax"
+msgstr "الضريبة"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__tax_amount
+msgid "Tax amount"
+msgstr "مبلغ الضريبه"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__tax_id
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: custody_clear_request
+#: selection:custody.clear.request,activity_state:0
+msgid "Today"
+msgstr "اليوم"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.custody_clear_request_tree
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__total_amount_ex
+msgid "Total Amount"
+msgstr "إجمالي المبلغ"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__total
+msgid "Total Expense"
+msgstr "مجموع المصروفات"
+
+#. module: custody_clear_request
+#: model_terms:ir.ui.view,arch_db:custody_clear_request.expense_all_tree
+msgid "Total Expenses"
+msgstr "مجموع المصروفات"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__total_history_amount
+msgid "Total Hostory Amount"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__journal_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_unread
+msgid "Unread Messages"
+msgstr "الرسائل الجديدة"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عدد الرسائل الجديدة"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__user_id
+#: model:ir.model.fields,field_description:custody_clear_request.field_pettycash_report__user_id
+msgid "User"
+msgstr "المستخدم"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_line__user_name
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__user_name
+msgid "User Name"
+msgstr "المستخدم"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,field_description:custody_clear_request.field_custody_clear_request__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,help:custody_clear_request.field_custody_clear_request__website_message_ids
+msgid "Website communication history"
+msgstr "سجل تواصل الموقع"
+
+#. module: custody_clear_request
+#: model:ir.model.fields,help:custody_clear_request.field_custody_clear_line__doc_attachment_id
+msgid "You can attach the copy of your document"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:ir.model,name:custody_clear_request.model_custody_clear_line
+msgid "custody.clear.line"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:ir.model,name:custody_clear_request.model_custody_clear_request_report
+msgid "custody.clear.request.report"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:ir.model,name:custody_clear_request.model_pettycash_report
+msgid "pettycash.report"
+msgstr ""
+
+#. module: custody_clear_request
+#: model:res.groups,comment:custody_clear_request.group_custody_clear_am
+#: model:res.groups,comment:custody_clear_request.group_custody_clear_dm
+#: model:res.groups,comment:custody_clear_request.group_custody_clear_fm
+msgid "the user will be able to custody Request created by employees."
+msgstr ""
+

@@ -1,0 +1,315 @@
+<odoo>
+    <data>
+
+
+        <record id="cash_voucher_search" model="ir.ui.view">
+            <field name="name">cash.voucher.search</field>
+            <field name="model">cash.voucher</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="currency_id"/>
+                    <field name="amount"/>
+                    <filter string="My Requests" name="my_request" domain="[('user_id', '=', uid)]"/>
+                    <filter name="state" string="Posted"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="cash_voucher_tree" model="ir.ui.view">
+            <field name="name">cash.voucher.tree</field>
+            <field name="model">cash.voucher</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="request_date"/>
+                    <field name="currency_id"/>
+                    <field name="user_name" widget="many2one_avatar_user"/>
+                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-danger="state == 'to approve'" decoration-success="state == 'done'"/>
+                    <field name="amount" sum="Total"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="expense_all_tree" model="ir.ui.view">
+            <field name="name">cash.voucher.all.tree</field>
+            <field name="model">cash.voucher.line</field>
+            <field name="arch" type="xml">
+                <tree  create="false" edit="false" delete="false">
+                    <field name="user_name" widget="many2one_avatar_user"/>
+                    <field name="name"/>
+                    <field name="doc_attachment_id" widget="many2many_binary"/>
+                    <field name="analytic_accont_id"/>
+                    <field name="state"/>
+                    <field name="amount" sum="Total Expenses"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="cash_voucher_form" model="ir.ui.view">
+            <field name="name">cash.voucher.form</field>
+            <field name="model">cash.voucher</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+
+                        <button name="confirm_manager" string="Submit" type="object"
+                                class="oe_highlight" states="draft" groups="base.group_user"/>
+                        <button name="reject" string="draft" type="object"
+                                class="oe_highlight" states="to approve" groups="base.group_user"/>
+                        <!--                        <button name="confirm_cashier" string="الي المراجعة الداخلية" type="object"-->
+                        <!--                                class="oe_highlight" states="manager" groups="finance_vouchers.group_cash_voucher_cs"/>-->
+                        <button name="unlink" string="الغاء" type="object"
+                                states="done" groups="finance_vouchers.group_cash_voucher_cs"/>
+                        <!--                        <button name="confirm_audit" string="إلي الخزينة" type="object"-->
+                        <!--                                class="oe_highlight" states="audit" groups="finance_vouchers.group_cash_voucher_cs"/>-->
+                        <!--                        <button name="confirm_post" string="تأكيد" type="object"-->
+                        <!--                                class="oe_highlight" states="done" groups="finance_vouchers.group_cash_voucher_mg"/>-->
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="object" name="action_move" class="oe_stat_button"
+                                    icon="fa-bars" groups="account.group_account_manager">
+                                <field name="count_je" widget="statinfo" string="Expense Entry"/>
+                            </button>
+                            <!--                            <button type="object" name="invoice_tree_view" class="oe_stat_button" icon="fa-bars">-->
+                            <!--                                <field name="x_doc_count" widget="statinfo" string="Bills" />-->
+                            <!--                            </button>-->
+                        </div>
+                        <group colspan="4">
+                            <div class="oe_title">
+                                <!--<label for="name" class="oe_edit_only"/>-->
+                                <h2><field name="name"/></h2>
+                            </div>
+                        </group>
+                        <!--<group colspan="4" string="Petty cash Balance">-->
+                        <!--<div >-->
+                        <!--<h3><field name="total_history_amount"/></h3>-->
+                        <!--</div>-->
+                        <!--</group>-->
+                        <group col="4" colspan="4" string="Details">
+                            <field name="user_name" widget="many2one_avatar_user"/>
+
+                            <!--<field name="pay_type"/>-->
+                            <field name="request_date" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <field name="amount" />
+<!--                            <field name="num2wo" readonly="1" context="{'lang': 'ar_AR'}"/>-->
+                            <field name="currency_id" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <!--                            <field name="x_bill_no" onchange="_get_bill(x_bill_no)"/>-->
+                            <field name="company_id" readonly="1" />
+
+
+
+                        </group>
+                        <!--<group >-->
+
+
+
+
+                        <notebook>
+                            <page string="Expenses Line">
+                                <field name="custody_line_ids" >
+                                    <tree editable="bottom">
+                                        <field name="state" invisible="1"/>
+                                        <field name="product_id" attrs="{'readonly': [('state','!=','draft')]}"/>
+                                        <field name="account_id" />
+                                        <field name="partner_id" />
+                                        <field name="name" attrs="{'readonly': [('state','!=','draft')]}"/>
+                                        <field name="currency_id" attrs="{'readonly': [('state','!=','draft')]}"/>
+
+<!--                                        <field name="doc_attachment_id" widget="many2many_binary" attrs="{'readonly': [('state','!=','draft')]}"/>-->
+
+<!--                                        <field name="analytic_accont_id"  />-->
+                                        <field name="amount" attrs="{'readonly': [('state','!=','draft')]}"/>
+
+                                    </tree>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right">
+                                    <!--<field name="amount_untaxed"/>-->
+                                    <field name="total_with_ex"/>
+                                    <field name="total" class="oe_subtotal_footer_separator"/>
+                                </group>
+                            </page>
+
+                            <page string="Accounting Details">
+                                <!--</group>-->
+                                <group col="4" colspan="4">
+
+                                    <field name="cash_journal_id"  options="{'no_create': True}" attrs="{'required': [('state','=', 'done')],
+                            'invisible': [('state','in',['draft','manager','audit'])]}"/>
+                                    <field name="account_id"  options="{'no_create': True}" attrs="{'required': [('state','=', 'done')],
+                             'invisible': [('state','in',['draft','manager','audit'])]}"/>
+
+                                    <field name="move_id" readonly="1"/>
+
+
+
+
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="sequence_cash_voucher" model="ir.sequence">
+            <field name="name">cash voucher sequence</field>
+            <field name="code">cash.voucher.code</field>
+            <field name="prefix">/%(range_year)s/</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="True" name="use_date_range"/>
+            <field eval="False" name="company_id"/>
+            <field name="padding">4</field>
+        </record>
+
+        <record id="cash_request_ac" model="ir.actions.act_window">
+            <field name="name">All Vouchers</field>
+            <field name="res_model">cash.voucher</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{'search_default_my_request': 1}</field>
+        </record>
+
+        <!--<record id="custody_clear_request_dm" model="ir.actions.act_window">-->
+        <!--<field name="name">Reconcile Direct Manager Approval</field>-->
+        <!--<field name="res_model">custody.clear.request</field>-->
+        <!--&lt;!&ndash;            <field name="view_type">form</field>&ndash;&gt;-->
+        <!--<field name="view_mode">tree,form,kanban</field>-->
+        <!--<field name="domain">[('state', '=', 'dm')]</field>-->
+        <!--<field name="context">{'search_default_today': 1}</field>-->
+
+        <!--</record>-->
+
+        <!--<record id="custody_clear_request_am" model="ir.actions.act_window">-->
+        <!--<field name="name">Reconcile Account Manager Approval</field>-->
+        <!--<field name="res_model">custody.clear.request</field>-->
+        <!--&lt;!&ndash;            <field name="view_type">form</field>&ndash;&gt;-->
+        <!--<field name="view_mode">tree,form,kanban</field>-->
+        <!--<field name="domain">[('state', '=', 'am')]</field>-->
+        <!--</record>-->
+
+        <!--<record id="custody_clear_request_fm" model="ir.actions.act_window">-->
+        <!--<field name="name">Reconcile Finance Manager Approval</field>-->
+        <!--<field name="res_model">custody.clear.request</field>-->
+        <!--&lt;!&ndash;            <field name="view_type">form</field>&ndash;&gt;-->
+        <!--<field name="view_mode">tree,form,kanban</field>-->
+        <!--<field name="domain">[('state', '=', 'fm')]</field>-->
+        <!--</record>-->
+
+        <record id="cash_voucher_post" model="ir.actions.act_window">
+            <field name="name">Vouchers Posted </field>
+            <field name="res_model">cash.voucher</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="domain">[('state', '=', 'post')]</field>
+            <field name="context">{'search_default_my_request': 1}</field>
+
+        </record>
+
+        <!--<record id="custody_report_action" model="ir.actions.act_window">-->
+        <!--<field name="name">Petty cash Report</field>-->
+        <!--<field name="res_model">pettycash.report</field>-->
+        <!--&lt;!&ndash;            <field name="view_type">form</field>&ndash;&gt;-->
+        <!--<field name="view_mode">tree</field>-->
+        <!--&lt;!&ndash;<field name="domain">[('state', '=', 'post')]</field>&ndash;&gt;-->
+        <!--&lt;!&ndash;<field name="context">{'search_default_my_request': 1}</field>&ndash;&gt;-->
+        <!--</record>-->
+
+        <!--<record id="report_tree_pettycash" model="ir.ui.view">-->
+        <!--<field name="name">pettycash.report.view.tree</field>-->
+        <!--<field name="model">pettycash.report</field>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<tree  create="false" edit="false" delete="false">-->
+        <!--<field name="date"/>-->
+        <!--&lt;!&ndash;<field name="request_date"/>&ndash;&gt;-->
+        <!--<field name="currency_id"/>-->
+        <!--<field name="analytic_id"/>-->
+        <!--<field name="company_id"/>-->
+        <!--<field name="user_id"/>-->
+        <!--<field name="amount"/>-->
+        <!--</tree>-->
+        <!--</field>-->
+        <!--</record>-->
+
+        <!--petty cash lines-->
+        <!--<record id="expense_lines_actions" model="ir.actions.act_window">-->
+        <!--<field name="name">Expenses Line</field>-->
+        <!--<field name="res_model">custody.clear.line</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_mode">tree</field>-->
+        <!--<field name="domain">[('state', '=', 'post')]</field>-->
+        <!--&lt;!&ndash;<field name="context">{'search_default_my_request': 1}</field>&ndash;&gt;-->
+        <!--</record>-->
+
+        <record model="ir.ui.view" id="petty_cash_reconcile_kanban_view">
+            <field name="name">Cash Vouchers Kanban</field>
+            <field name="model">cash.voucher</field>
+            <field name="arch" type="xml">
+                <kanban class="o_res_partner_kanban" create="true">
+                    <field name="name"/>
+                    <field name="user_name" widget="many2one_avatar_user"/>
+                    <field name="request_date"/>
+                    <field name="amount"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </strong>
+                                        <strong class="o_kanban_record_subtitle"><field name="user_name"/></strong>
+                                        <strong class="o_kanban_record_subtitle"><field name="amount"/></strong>
+                                    </div>
+                                </div>
+                                <strong style="color:blue;"><field name="request_date"/></strong><br></br>
+                                <strong style="color:green;">State / <field name="state" /></strong>
+
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!--<record id="custody_request)inherit_form" model="ir.ui.view">-->
+        <!--<field name="name">custody.request.form.inherit</field>-->
+        <!--<field name="model">custody.request</field>-->
+        <!--<field name="inherit_id" ref="custody_request.custody_request_form"/>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<xpath expr="//button[@name='action_journal_entry']" position="before">-->
+        <!--<button type="object" name="action_reconcile_request" class="oe_stat_button"-->
+        <!--icon="fa-check-square">-->
+        <!--<field name="clear_num" widget="statinfo" string="Reconcile"/>-->
+        <!--</button>-->
+        <!--</xpath>-->
+
+        <!--</field>-->
+        <!--</record>-->
+
+        <!--<menuitem id="custody_clear_request_root" name="Reconcile Request" groups="base.group_user"/>-->
+        <menuitem id="account.menu_finance" name="Finance Approval" />
+        <menuitem id="cash_vouchers_root" name="Finance Approval" />
+        <menuitem id="cash_vouchers_ch1" name="Finance Approvals" parent="account.menu_finance"
+                  sequence="1"/>
+        <menuitem id="cash_vouchers_root_ch1_ch1" name="Cash Out ِApproval" parent="cash_vouchers_ch1"
+                  sequence="1" action="cash_request_ac"/>
+
+        <!--<menuitem id="report_root" name="Report" parent="custody_request.custody_request_root"-->
+        <!--sequence="3" groups="base.group_user" action="custody_report_action"/>-->
+
+
+    </data>
+</odoo>

@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cash_voucher_user,cash_voucher,model_cash_voucher,base.group_user,1,1,1,1
+access_cash_voucher_line_user,cash_voucher,model_cash_voucher_line,base.group_user,1,1,1,1
+access_cash_voucher_cs,cash_voucher,model_cash_voucher,base.group_user,1,1,1,0
+access_cash_voucher_mg,cash_voucher,model_cash_voucher,base.group_user,1,1,1,0
+access_voucher_team_approver_manager,voucher_team_approver_manager,finance_vouchers.model_voucher_team_approver,base.group_user,1,1,1,1
+access_voucher_team_custom_manager,voucher_team_custom_manager,finance_vouchers.model_voucher_team_custom,base.group_user,1,1,1,1
+access_voucher_order_approver,voucher_order_approver,finance_vouchers.model_voucher_approver,base.group_user,1,1,1,1
+
+
+
+
+
+
+
+

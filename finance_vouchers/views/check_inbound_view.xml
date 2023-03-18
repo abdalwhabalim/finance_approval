@@ -1,0 +1,199 @@
+<odoo>
+    <data>
+
+
+        <record id="check_inbound_search" model="ir.ui.view">
+            <field name="name">check.inbound.search</field>
+            <field name="model">check.inbound</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="currency_id"/>
+                    <field name="amount"/>
+                    <filter string="My Requests" name="my_request" domain="[('user_id', '=', uid)]"/>
+                    <filter name="state" string="Posted"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="check_inbound_tree" model="ir.ui.view">
+            <field name="name">check.inbound.tree</field>
+            <field name="model">check.inbound</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="request_date"/>
+                    <field name="cheque_number"/>
+                    <field name="check_date"/>
+                    <field name="state"/>
+                    <field name="amount" sum="Total"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="expense_all_tree" model="ir.ui.view">
+            <field name="name">check.inbound.all.tree</field>
+            <field name="model">check.inbound.line</field>
+            <field name="arch" type="xml">
+                <tree  create="false" edit="false" delete="false">
+                    <field name="user_name" widget="many2one_avatar_user"/>
+                    <field name="name"/>
+                    <field name="doc_attachment_id" widget="many2many_binary"/>
+                    <field name="state"/>
+                    <field name="amount" sum="Total Expenses"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="check_inbound_form" model="ir.ui.view">
+            <field name="name">check.inbound.form</field>
+            <field name="model">check.inbound</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+
+                        <button name="confirm_post" string="إعتماد" type="object"
+                                class="oe_highlight" states="draft" groups="finance_vouchers.group_cash_voucher_cs"/>
+
+                        <button name="unlink" string="الغاء" type="object"
+                                states="post" groups="finance_vouchers.group_cash_voucher_cs"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="object" name="action_check_view" class="oe_stat_button"
+                                    icon="fa-list-alt">
+                                <field name="check_count" widget="statinfo" string="Checks"/>
+                            </button>
+                            <button type="object" name="action_move" class="oe_stat_button"
+                                    icon="fa-bars" groups="account.group_account_manager">
+                                <field name="count_je" widget="statinfo" string="قيد اليومية"/>
+                            </button>
+
+                        </div>
+                        <group colspan="4">
+                            <div class="oe_title">
+                                <!--<label for="name" class="oe_edit_only"/>-->
+                                <h2><field name="name"/></h2>
+                            </div>
+
+                        </group>
+                        <group>
+
+                            <field name="user_name" widget="many2one_avatar_user"/>
+                        </group>
+                        <group col="6" colspan="6" string="Details">
+                            <field name="request_date" readonly="1"/>
+                            <field name="check_date" attrs="{'readonly': [('state','not in',['draft'])]}"/>
+                            <field name="cash_journal_id"  options="{'no_create': True}" attrs="{'required': [('state','=', 'draft')],
+                            'readonly': [('state','not in',['draft'])]}" />
+                            <field name="person" attrs="{'readonly': [('state','not in',['draft'])]}"/>
+                            <field name="amount" attrs="{'readonly': [('state','not in',['draft'])]}"/>
+                            <field name="num2wo" readonly="1"/>
+                            <field name="cheque_number"/>
+                            <field name="currency_id" />
+                            <field name="company_id" readonly="1"/>
+                        </group>
+
+                        <notebook>
+                            <page string="Expenses Line">
+                                <field name="custody_line_ids" >
+                                    <tree editable="bottom">
+                                        <field name="state" invisible="1"/>
+                                        <field name="account_id" onchange="_get_partner"/>
+                                        <field name="partner_id" />
+                                        <field name="name" />
+                                        <field name="currency_id" />
+                                        <field name="doc_attachment_id" widget="many2many_binary"/>
+                                        <field name="amount"/>
+                                    </tree>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right">
+                                    <field name="total_with_ex"/>
+                                    <field name="total" class="oe_subtotal_footer_separator"/>
+                                </group>
+                            </page>
+
+                            <page string="Accounting Details">
+                                <group col="4" colspan="4">
+                                    <field name="account_id"  options="{'no_create': True}"  attrs="{'required': [('state','=', 'draft')],
+                                                        'readonly': [('state','not in',['draft'])]}"/>
+                                    <field name="check_journal_id" invisible="1"/>
+                                    <field name="move_id" readonly="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="sequence_check_inbound" model="ir.sequence">
+            <field name="name">check Inbound sequence</field>
+            <field name="code">check.inbound.code</field>
+            <field name="prefix">/%(range_year)s/</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="True" name="use_date_range"/>
+            <field eval="False" name="company_id"/>
+            <field name="padding">4</field>
+        </record>
+
+        <record id="check_inbound_ac" model="ir.actions.act_window">
+            <field name="name">All Vouchers</field>
+            <field name="res_model">check.inbound</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{'search_default_my_request': 1}</field>
+        </record>
+
+        <record id="check_inbound_post" model="ir.actions.act_window">
+            <field name="name">Vouchers Posted </field>
+            <field name="res_model">check.inbound</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="domain">[('state', '=', 'post')]</field>
+            <field name="context">{'search_default_my_request': 1}</field>
+        </record>
+
+        <record model="ir.ui.view" id="petty_cash_reconcile_kanban_view">
+            <field name="name">Cash Vouchers Kanban</field>
+            <field name="model">check.inbound</field>
+            <field name="arch" type="xml">
+                <kanban class="o_res_partner_kanban" create="true">
+                    <field name="name"/>
+                    <field name="user_name" widget="many2one_avatar_user"/>
+                    <field name="request_date"/>
+                    <field name="amount"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </strong>
+                                        <strong class="o_kanban_record_subtitle"><field name="user_name"/></strong>
+                                        <strong class="o_kanban_record_subtitle"><field name="amount"/></strong>
+                                    </div>
+                                </div>
+                                <strong style="color:blue;"><field name="request_date"/></strong><br></br>
+                                <strong style="color:green;">State / <field name="state" /></strong>
+
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+    </data>
+</odoo>
