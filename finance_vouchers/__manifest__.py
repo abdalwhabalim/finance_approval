@@ -1,7 +1,11 @@
 {
     'name': 'Finance Vouchers Approval / Cash Approval',
     'version': '1.0',
-    'author': 'SOFT GUIDE TECH',
+    'category': 'Accounting',
+    'author': 'SGT',
+    'support': 'support@softguidetech.com',
+    'website': 'https://softguidetech.com',
+    'license': 'OPL-1',
     'price': '38',
     'currency': 'EUR',
     'data': [
