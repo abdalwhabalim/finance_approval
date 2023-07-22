@@ -19,7 +19,7 @@
         'reports/cash_report.xml',
     ],
     'images': [
-        'static/description/SGT-GIF.gif',
+        'static/description/logo.png',
     ],
     'depends': ['base','account','analytic','payment'],
 
